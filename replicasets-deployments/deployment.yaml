@@ -1,0 +1,24 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: store-products-deploy
+  labels:
+    cont: custom-cont
+spec:
+  replicas: 6
+  selector:
+    matchLabels:
+      cont: custom-cont
+  strategy:
+    type: RollingUpdate
+  template:
+    metadata: 
+      name: store-products
+      labels:
+        cont: custom-cont
+    spec:
+      containers:
+      - name: store-products-cont
+        image: calebespinoza/store-products:3.0
+        ports:
+          - containerPort: 80
