@@ -1,12 +1,13 @@
 plugins {
-	id 'org.springframework.boot' version '2.7.4'
-	id 'io.spring.dependency-management' version '1.0.14.RELEASE'
 	id 'java'
+	id 'org.springframework.boot' version '2.2.5.RELEASE'
+	id 'io.spring.dependency-management' version '1.0.9.RELEASE'
 }
 
-group = 'com.k8s'
-version = '0.0.1-SNAPSHOT'
-sourceCompatibility = '11'
+group 'com.k8s'
+version '1.0-SNAPSHOT'
+
+sourceCompatibility = 1.8
 
 repositories {
 	mavenCentral()
@@ -18,20 +19,15 @@ dependencies {
 	implementation group: 'io.springfox', name: 'springfox-swagger2', version: '2.9.2'
 	implementation group: 'org.springframework.boot', name: 'spring-boot-starter-data-jpa'
 	implementation group: 'mysql', name: 'mysql-connector-java', version: '8.0.16'
-	implementation 'org.springframework.boot:spring-boot-dependencies:2.7.4'
+	implementation 'org.springframework.boot:spring-boot-dependencies:2.2.5.RELEASE'
 	implementation 'org.springframework.boot:spring-boot-starter-web'
 	implementation 'io.jsonwebtoken:jjwt:0.9.1'
-	implementation 'org.springframework.boot:spring-boot-starter-data-jpa'
-	developmentOnly 'org.springframework.boot:spring-boot-devtools'
-	runtimeOnly 'mysql:mysql-connector-java'
 	testImplementation('org.springframework.boot:spring-boot-starter-test') {
 		exclude group: 'org.junit.vintage', module: 'junit-vintage-engine'
 	}
-	testImplementation(
-			'junit:junit:4.13.2',
-			'org.junit.jupiter:junit-jupiter:5.9.0',
-	)
-	test {
-		useJUnitPlatform()
-	}
 }
+
+test {
+	useJUnitPlatform()
+}
+

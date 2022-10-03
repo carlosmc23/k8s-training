@@ -4,14 +4,19 @@ import javax.persistence.*;
 
 @Entity
 @Table(name = "User")
-public class User extends ModelBase{
+public class User{
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long id;
     private String name;
     private String lastName;
     private String role;
-
-    public User() {
+    public Long getId() {
+        return id;
     }
-
+    public void setId(Long id) {
+        this.id = id;
+    }
     public String getName() {
         return name;
     }

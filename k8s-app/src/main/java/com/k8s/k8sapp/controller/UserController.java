@@ -11,7 +11,6 @@ package com.k8s.k8sapp.controller;
 
 import com.k8s.k8sapp.model.User;
 import com.k8s.k8sapp.services.UserService;
-import com.k8s.k8sapp.services.UserServiceImpl;
 import io.swagger.annotations.Api;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -26,11 +25,11 @@ import org.springframework.web.bind.annotation.RestController;
 
 @RestController
 @RequestMapping(path = "/user")
-@Api(value = "user", description = "Operations pertaining to manage users")
+@Api(value = "user")
 public class UserController {
 
     @Autowired
-    private UserServiceImpl userService;
+    private UserService userService;
 
     @GetMapping
     public Iterable<User> getAllUsers() {
